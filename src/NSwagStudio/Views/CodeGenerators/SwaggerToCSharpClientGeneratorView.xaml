@@ -141,8 +141,13 @@
                                           Content="Expose the JsonSerializerSettings property"
                                           ToolTip="ExposeJsonSerializerSettings" Margin="0,0,0,12" />
 
+                                <CheckBox IsChecked="{Binding Command.UseRestSharp, Mode=TwoWay}"
+                                          ToolTip="UseRestSharp"
+                                          Content="Use RestSharp rather than HttpClient to generate the client class" Margin="0,0,0,12" />
+
                                 <CheckBox IsChecked="{Binding Command.InjectHttpClient, Mode=TwoWay}"
                                           ToolTip="InjectHttpClient"
+                                          Visibility="{Binding Command.UseRestSharp, Converter={StaticResource NotConverter}}"
                                           Content="Inject HttpClient via constructor (life cycle is managed by the caller)" Margin="0,0,0,12" />
 
                                 <CheckBox IsChecked="{Binding Command.DisposeHttpClient, Mode=TwoWay}"
@@ -164,8 +169,10 @@
                                           ToolTip="SerializeTypeInformation"
                                           Content="Serialize the type information in a $type property (not recommended, also sets TypeNameHandling = Auto)" Margin="0,0,0,12" />
 
-                                <TextBlock Text="Http Client Type" FontWeight="Bold" Margin="0,0,0,6" />
-                                <TextBox Text="{Binding Command.HttpClientType, Mode=TwoWay}" ToolTip="HttpClientType" Margin="0,0,0,12" />
+                                <StackPanel Visibility="{Binding Command.UseRestSharp, Converter={StaticResource NotConverter}}">
+                                    <TextBlock Text="Http Client Type" FontWeight="Bold" Margin="0,0,0,6" />
+                                    <TextBox Text="{Binding Command.HttpClientType, Mode=TwoWay}" ToolTip="HttpClientType" Margin="0,0,0,12" />
+                                </StackPanel>
 
                                 <TextBlock Text="DateTime format for method parameters" FontWeight="Bold" Margin="0,0,0,6" />
                                 <TextBox Text="{Binding Command.ParameterDateTimeFormat, Mode=TwoWay}" ToolTip="ParameterDateTimeFormat" Margin="0,0,0,12" />

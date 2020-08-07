@@ -74,6 +74,9 @@ namespace NSwag.CodeGeneration.CSharp.Models
         /// <summary>Gets a value indicating whether to use a HTTP client creation method.</summary>
         public bool UseHttpClientCreationMethod => _settings.UseHttpClientCreationMethod;
 
+        /// <summary>Gets or sets a value indicating whether to generate the client class using RestSharp or System.Net.Http.HttpClient</summary>
+        public bool UseRestSharp => _settings.UseRestSharp;
+
         /// <summary>Gets the type of the HttpClient that will be used in the calls from a client to a service.</summary>
         public string HttpClientType => _settings.HttpClientType;
 

@@ -122,6 +122,13 @@ namespace NSwag.Commands.CodeGeneration
             set { Settings.UseHttpClientCreationMethod = value; }
         }
 
+        [Argument(Name = "UseRestSharp", IsRequired = false, Description = "Use RestSharp instead of 'System.Net.Http.HttpClient'.")]
+        public bool UseRestSharp
+        {
+            get { return Settings.UseRestSharp; }
+            set { Settings.UseRestSharp = value; }
+        }
+
         [Argument(Name = "HttpClientType", IsRequired = false, Description = "Specifies the HttpClient type. By default the 'System.Net.Http.HttpClient' is used.")]
         public string HttpClientType
         {

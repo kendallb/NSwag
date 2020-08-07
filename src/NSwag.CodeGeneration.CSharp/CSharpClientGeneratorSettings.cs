@@ -83,6 +83,9 @@ namespace NSwag.CodeGeneration.CSharp
         /// <summary>Gets or sets a value indicating whether to decorate Async methods with the Async suffix.</summary>
         public bool DecorateAsyncMethods { get; set; }
 
+        /// <summary>Gets or sets a value indicating whether to generate the client class using RestSharp or System.Net.Http.HttpClient</summary>
+        public bool UseRestSharp { get; set; }
+
         /// <summary>
         /// Gets or sets the HttpClient type which will be used in the generation of the client code. By default the System.Net.Http.HttpClient
         /// will be used, but this can be overridden. Just keep in mind that the type you specify has the same default HttpClient method signatures.
